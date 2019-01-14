@@ -1,0 +1,79 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'mainPage/style.css' %}">
+<html>
+    <head>
+        <title>Base Page</title>
+    </head>
+    <body>
+        <img src="{% static 'mainPage/images/HUS_Logo_1.png' %}" class="Logo" id="top"/>
+        <div class="search">
+            <input type="text" value="검색창">
+            <button>검색버튼</button>
+        </div>
+        <section class="topMenu">
+                <table>
+                        <tr>
+                            {% for index in range %}
+                            <th>
+                                {{ index }}. 대게시판 제목
+                            </th>
+                            {% endfor %}
+                        </tr>
+                        <tr>   
+                            {% for index in range %} 
+                            <td>
+                                <ol>
+                                    {% for index in range %} 
+                                    <ol>소게시판 제목</ol>
+                                    {% endfor %}
+                                </ol>
+                            </td>
+                            {% endfor %}
+                        </tr>
+                </table>
+        </section>
+        <aside class="sideMenu">
+            <ul>
+                {% for index in range %}
+                <li>대게시판</li>
+                <ul>
+                    {% for index in range %}
+                    <li>소게시판</li>
+                    {% endfor%}
+                </ul>
+                {% endfor %}
+            </ul>
+        <div class="sideMenuBottomIcons">
+        <a href="#bottom"><img src="{% static 'mainPage/images/down.png'%}" class="img"/></a>
+        <a href="#top"><img src="{% static 'mainPage/images/up.png'%}" class="img"/></a>
+        <a href="{% url 'mainPage:mainPage' %}"><img src="{% static 'mainPage/images/home.png'%}" class="img"/></a>
+        </div>
+        </aside>
+        <section class="mainContent">
+
+        </section>
+        <footer class="footer">
+        <div class="centerBox">
+            <h3>&lt;&lt;</h3>
+            <h3>&lt;</h3>
+            {% for index in ten %}
+            <h3 style="display:inline-block"><a href="#">{{ index }}  </a></h3>
+            {% endfor%}
+            <h3>&gt;&gt;</h3>
+            <h3>&gt;</h3>
+        </div>
+        <div id="bottom" class="centerBox">
+            <form action="#">
+                    <select name="filter">
+                        <option value="noFilter">선택안함</option>
+                        <option value="title">제목</option>
+                        <option value="weiter">글쓴이</option>
+                        <option value="titleNContent">제목+내용</option>
+                    </select>
+                    <input type="text">
+                    <button>검색</button>
+            </form>
+        </div>
+        </footer>
+    </body>
+</html>

@@ -71,3 +71,46 @@ h1{
     width:400px;
     display:inline-block;
 }
+.topMenu{
+    width:100%;
+}
+.sideMenu{
+    width:12%;
+    height:500px;
+    float:left;
+    border:1px solid black;
+    margin: 5px;
+    padding: 5px;
+    position:fixed;
+}
+.sideMenuBottomIcons{
+    margin:5px;
+    text-align:center;
+}
+.mainContent{
+    width:85%;
+    height:1500px;
+    border:1px solid black;
+    float:right;
+    margin:5px;
+    padding: 5px;
+}
+.footer{
+    width:85%;
+    height:200px;
+    border:1px solid black;
+    display:block;
+    clear: both;
+    float:right;
+    margin:5px;
+    padding: 5px;
+}
+.centerBox {
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    vertical-align:middle;
+  }
+.centerBox h3{
+    display:inline-block
+}
