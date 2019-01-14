@@ -45,6 +45,24 @@
         <section class="bestFive">
             <h2>Best 게시물</h2>
         </section>
+        <section class="login2">
+                <div>
+                    <div>
+                        <img src="{% static 'mainPage/images/handongLogo.png' %}" class="img"/>
+                        <h2 style="display: inline">사용자</h2>
+                    </div>
+                    <h4>알림</h4>
+                    <h4>마이페이지</h4>
+                    <h4>로그아웃</h4> 
+                    <div class="notice">
+                        <ul>
+                            {% for index in range %}
+                            <li>알림입니다<button>X</button></li>
+                            {% endfor %}
+                        </ul>
+                    </div> 
+                </div>
+            </section>
         <section class="news">
             <h2>한동신문사</h2>
         </section>
@@ -52,7 +70,7 @@
             <h2>한동장터</h2>
             {% for index in range %}
                 <div class="marketItem">
-                    <img src="{% static 'mainPage/images/handongLogo.png' %}"/>
+                    <img src="{% static 'mainPage/images/handongLogo.png' %}" class="img"/>
                     <h2>상품 이름</h2>
                     <h3>20,000</h3>
                 </div>
@@ -62,7 +80,7 @@
             <h2>Lost&Found</h2>
             {% for index in range %}
             <div class="lostItem">
-                <img src="{% static 'mainPage/images/handongLogo.png' %}"/>
+                <img src="{% static 'mainPage/images/handongLogo.png' %}" class="img"/>
                 <h2>글 제목</h2>
             </div>
         {% endfor %}
