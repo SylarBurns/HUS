@@ -1,0 +1,72 @@
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>myData</title>
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'mypage/style.css' %}">
+
+  <style type="text/css">
+    .button {
+    background-color:#f2f2f2;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 100px;
+    margin-left: 680px;
+    cursor: pointer;
+  }
+  </style>
+</head>
+<body>
+
+<h2>마이페이지</h2>
+<h4>각종 설정들을 확인 및 수정하세요</h4>
+
+<table class="t01">
+  <tr>
+      <td><a href="{% url 'mypage:myPost' %}">내가 쓴 글</a></td>
+      <td><a href="{% url 'mypage:myComment' %}">내가 쓴 댓글</a></td>
+      <td><a href="{% url 'mypage:myReport' %}">신고 내역</a></td>
+      <th><a href="{% url 'mypage:myData' %}">나의 정보</th>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>이름</th>
+    <td>도경수</td>
+  </tr>
+  <tr>    
+    <th>생년월일</th>
+    <td>1998-04-08</td></tr>
+  <tr>    
+    <th>성별</th>
+    <td>여</td>
+  </tr>
+  <tr>    
+    <th>닉네임</th>
+    <td>---</td>
+  </tr>
+  <tr>    
+    <th>핸드폰</th>
+    <td>010-1111-2222</td>
+  </tr>
+  <tr>    
+    <th>아이콘</th>
+    <td>---</td>
+  </tr>
+  <tr>    
+    <th>가입일시</th>
+    <td>2019-03-01</td>
+  </tr><br>
+  </table>
+  <button class="button">수정</button>
+
+</body>
+</html>
+{% endblock %}
