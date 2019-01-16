@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'boards.apps.BoardsConfig',
     'mypage.apps.MypageConfig',
     'join.apps.JoinConfig',
+    'lostAndFound.apps.LostandfoundConfig',
 ]
 
 MIDDLEWARE = [

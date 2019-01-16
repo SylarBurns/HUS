@@ -1,0 +1,68 @@
+.lostAndFoundMainTable {
+    width: 80%;
+    border-top: 1px solid #444444;
+    border-collapse: collapse;
+    margin : 10px;
+}
+th, td {
+    border-bottom: 1px solid #444444;
+    padding: 10px;
+}
+
+.tdCategory{
+    text-align: left;
+    border: 0px;
+}
+
+.category{
+    border: 1px solid #444444;
+    padding: 10px;
+}
+
+#lostAndFoundCategoryTable{
+    line-height:30px;
+    word-wrap:break-word;
+    border: 0px;
+}
+
+.headerContent{
+    text-align: left;
+    width: 50%;
+}
+
+.content{
+    text-align: left;
+}
+
+.thumbnail{
+    width:100px;
+    height:100px;
+}
+
+#lostAndFoundCreateButton{
+    border: none;
+    background-color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+}
+
+.lostAndFoundName{
+    margin : 10px;
+}
+
+.writerProfile{
+    width: 25px;
+    height:25px;
+    border-radius: 50%;
+}
+
+.lostAndFoundDetailTable{
+    width: 80%;
+    text-align: left;
+}
+
+#lostAndFoundDetailTitle{
+    font-size: 20px;
+}
