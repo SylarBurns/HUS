@@ -1,0 +1,28 @@
+div{
+    padding-left:5%
+}
+.title{
+    margin:0;
+    padding-top:1%;
+    border-top:1px solid black;
+    padding-bottom:0;
+}
+.date{
+    margin:0;
+    border-bottom:1px solid black;
+    text-align:right;
+    padding-right:10%;
+}
+.name{
+    margin:0;
+}
+.comment{
+    padding : 0.7%;
+    border:1px solid gray;
+}
+.context{
+    padding-left : 5%;
+}
+.buttons{
+    box-align : right;
+}
