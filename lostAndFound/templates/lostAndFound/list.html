@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="{% static 'lostAndFound/style.css' %}">
+        <title>LOST & FOUND</title>
+        <link rel="icon" href="{% static 'images/title_icon.jpg' %}">
+    </head>
+
+
+    <body>
+        <div class="lostAndFoundName">
+            <h2><a href="{% url 'lostAndFound:list' %}">LOST & FOUND</a></h2>
+            <h4>한우리 분실물 게시판입니다.</h4>
+        </div>
+
+        <table id=lostAndFoundCategoryTable>
+            <tbody>
+                <tr>
+                    <td class=tdCategory>
+                        <span class=category><b>전체</b></span>
+                        <span class=category>LOST</span>
+                        <span class=category>FOUND</span>
+                    </td>
+                </tr>
+                <tr>
+                        <td class=tdCategory>
+                            <span class=category>학생증</span>
+                            <span class=category>전자기기</span>
+                            <span class=category>돈/지갑/카드</span>
+                            <span class=category>기타</span>
+                        </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <table id="lostAndFoundMainTable">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>분류</th>
+                    <th class="headerContent">제목</th>
+                    <th>썸네일</th>
+                    <th>글쓴이</th>
+                    <th>조회수</th>
+                    <th>날짜</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</th>
+                    <td>학생증</td>
+                    <td>
+                        <div class="content">
+                            <div class="status"><b>[ LOST ]</b></div>
+                            <div><a href="detail/">게시글 제목제목제목제목제목제목제목</a></div>
+                        </div>
+                    </td>
+                    <td><img src="{% static 'images/idcard.jpg' %}" class="thumbnail"></td>
+                    <td>크랑이</td>
+                    <td>13</td>
+                    <td>01-14</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button id=lostAndFoundCreateButton><a href="create/">글쓰기</a></button>
+
+
+    </body>
+</html>
+
+
+
+
+
+
+    <!--
+        <td align="left" class="" style="font-size:14px;word-break:break-all;padding:8px 0 7px 9px;"><span style="padding-right:6px"><i class="material-icons gray" style="font-size:18px;padding:2px;margin-bottom:2px;"></i></span> 
+			<a href="view.php?id=gofun&amp;page=1&amp;sn1=&amp;divpage=34&amp;sn=off&amp;ss=on&amp;sc=on&amp;select_arrange=headnum&amp;desc=asc&amp;no=97443">[웃음/감동/연재 공지사항 모음]</a></td>
+    
+    
+    
+    
+    -->
+
