@@ -1,0 +1,62 @@
+{% extends 'mainPage/basePage.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>myPost</title>
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'mypage/style.css' %}">
+</head>
+<body>
+<h2>마이페이지</h2>
+<h4>각종 설정들을 확인 및 수정하세요</h4>
+
+<table class="t01">
+  <tr>
+    <th><a href="{% url 'mypage:myPost' %}">내가 쓴 글</a></th>
+    <td><a href="{% url 'mypage:myComment' %}">내가 쓴 댓글</a></td>
+    <td><a href="{% url 'mypage:myReport' %}">신고 내역</a></td>
+    <td><a href="{% url 'mypage:myData' %}">나의 정보</td>
+  </tr>
+</table>
+
+<table class="main">
+  <tr class="t02">
+    <th>번호</th>
+    <th>분류</th>
+    <th>제목</th> 
+    <th>글쓴이</th>
+    <th>조회수</th>
+    <th>날짜</th>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>감자밭</td>
+    <td>오늘 맘스 여나요? [2]</td>
+    <td>나나</td>
+    <td>2</td>
+    <td>01:30</td>
+
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>활주로</td>
+    <td>why not change the world? [18]</td>
+    <td>나나</td>
+    <td>94</td>
+    <td>02:02</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>천마지</td>
+    <td>봄봄봄</td>
+    <td>나나</td>
+    <td>23</td>
+    <td>03:03</td>
+  </tr>
+</table>
+<br>
+
+</body>
+</html>
+{% endblock %}

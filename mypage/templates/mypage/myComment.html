@@ -1,0 +1,57 @@
+{% extends 'mainPage/basePage.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>myComment</title>
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'mypage/style.css' %}">
+  <style type="text/css">
+    #t01{
+      margin-bottom: 40px;
+      margin-left : 80px;
+    }
+  </style>
+</head>
+<body>
+
+<h2>마이페이지</h2>
+<h4>각종 설정들을 확인 및 수정하세요</h4>
+
+<table class="t01">
+  <tr>
+    <td><a href="{% url 'mypage:myPost' %}">내가 쓴 글</a></td>
+    <th><a href="{% url 'mypage:myComment' %}">내가 쓴 댓글</a></th>
+    <td><a href="{% url 'mypage:myReport' %}">신고 내역</a></td>
+    <td><a href="{% url 'mypage:myData' %}">나의 정보</td>
+  </tr>
+</table>
+
+<table>
+  <tr class="t02">
+    <th>번호</th>
+    <th >댓글 내용</th>
+    <th >날짜</th> 
+  </tr>
+  <tr>
+    <td>3</td>
+    <td >그러게나 말입니다</td>
+    <td >01:30</td>
+
+  </tr>
+  <tr>
+    <td>2</td>
+    <td >매점에 있어용</td>
+    <td >02:02</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td >파이팅!!!</td>
+    <td >03:03</td>
+  </tr>
+</table>
+<br>
+
+</body>
+</html>
+{% endblock %}
