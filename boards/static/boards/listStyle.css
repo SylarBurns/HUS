@@ -1,0 +1,11 @@
+th{
+    text-align:left;
+}
+th, td{
+    padding-bottom:0.5%;
+    border-bottom: 1px solid black;
+}
+button{
+    width:5%;
+    height:3%;
+}

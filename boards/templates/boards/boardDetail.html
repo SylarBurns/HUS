@@ -1,56 +1,15 @@
+{% extends 'mainPage/basePage.html' %}
+{% block content %}
 <!DOCTYPE html>
 <html>
     <head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'boards/detailStyle.css'%}">   
         <meta charset="UTF-8">
         <title> boardDetail </title>
-        <style>
-            .list{
-                padding : 50px;
-                margin : 0.5em;
-                border: 1px solid black; 
-            }
-            .boardName{
-                margin-left : 1em;
-            }
-            div{
-                padding-left:5%
-            }
-            .title{
-                margin:0;
-                padding-top:1%;
-                border-top:1px solid black;
-                padding-bottom:0;
-            }
-            .date{
-                margin:0;
-                border-bottom:1px solid black;
-                text-align:right;
-                padding-right:10%;
-            }
-            .name{
-                margin:0;
-            }
-            .comment{
-                padding : 0.7%;
-                border:1px solid gray;
-            }
-            .context{
-                padding-left : 5%;
-            }
-            .buttons{
-                align : right;
-            }
-            
-        
-        </style>
-
-
-
     </head>
 
     <body>
-       <h1><a href="/boards/"> 한우리</a><h1>
-       <h1 class="list">상단 바</h1>
        <h2 class="boardName"> 감자밭 </h2>
        <h4 class="boardName"> 다양한 주제를 공유하는 남송리 대표 자유게시판입니다. </h4>
        <div>
@@ -89,3 +48,4 @@
     </body>
 
 <html>
+{% endblock %}
