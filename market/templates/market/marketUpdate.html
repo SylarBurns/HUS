@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>한우리 - 한동, 우리들 이야기</title>
+  <style>
+    .column {
+
+        margin: 25px;
+
+        float: left;
+        width: 25%;
+        padding: 10px;
+    }
+    .row:after {
+        border: 20px solid green;
+        content: "";
+        display: table;
+        clear: both;
+    }
+    * {
+        box-sizing: border-box;
+    }
+    .button {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 15px 25px;
+        text-align: center;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    .button:hover {
+    background-color: #4CAF50;
+    }
+  </style>
+</head>
+<body>
+    <a href='Market_Main.html'><img src="hanul.png" border="0" height="72" style="padding-top:12px;padding-left:2px;"></a>
+    <input type="search" name="tagkeyword" id="query" autocomplete="off" maxlength="255" style="-webkit-appearance:none;font-size:12px;border:2px solid #86f3ff;background-repeat:no-repeat;  padding:8px;width:180px; color:#666;" onclick="this.value=''" value="" placeholder="검색창">
+    <a href='Market_Main.html'><input type="submit" class="lod" name="sa" value="검색" style="cursor:pointer;font-size:12px;color:#fff;background-color:#86f3ff;padding:10px 12px;border:0; " align="absmiddle"></a>
+
+    <h1>한동 장터-Update</h1>
+    <div>남송리 3번지, 한동 장터 게시글 수정하기입니다.</div><br>
+    <div class="row">
+        <div class="column">
+            <section class="menu">
+                거래 분류 : 
+                    <form>
+                        <input type="radio" name="sale" value="sale" checked disabled="true"> 팝니다
+                        <input type="radio" name="sale" value="sale" disabled="true"> 삽니다
+                    </form><br>
+                제목 : <input type="text" name="Title" value="제목입니다"><br><br>
+                카테고리 : 
+                    <select>
+                        <option value="volvo">책</option>
+                        <option value="saab">옷</option>
+                        <option value="opel">생활용품</option>
+                        <option value="audi">기타</option>
+                    </select><br><br>
+                가격 : <input type="text" name="Price" placeholder="가격을 적어주세요">원<br><br>
+                연락처 : <input type="text" name="HP"" placeholder="연락처를 적어주세요"><br>연락처는 거래 완료 후 비공개됩니다.<br><br>
+                설명 : <br><textarea rows="4" cols="50" placeholder="내용을 적어주세요"></textarea><br><br>
+            </section>
+        </div>
+        <div class="column">
+            <article>
+                <img src="hanul.png" height="100" style="padding-top:12px;padding-left:2px;"><br>
+                <button class="button">사진추가</button><br>
+                최대 4장까지 가능합니다
+            </article>
+        </div>
+    </div>
+
+    <button class="button">항목추가</button>
+    <br><br>
+    <br><br>
+    <a href="Market_Main.html"><input type="submit" value="제출하기"></a>
+    
+</body>
+</html>

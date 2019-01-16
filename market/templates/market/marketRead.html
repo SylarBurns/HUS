@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>한우리 - 한동, 우리들 이야기</title>
+  <style>
+
+    #Card {
+        width: 300px;
+        border-top: 25px solid green;
+        border-bottom: 25px solid green;
+        padding: 25px;
+        margin: 25px;
+    }
+
+    .button {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 15px 25px;
+        text-align: center;
+        font-size: 16px;
+        cursor: pointer;
+
+    }
+    .column {
+        float: left;
+        width: 25%;
+        padding: 10px;
+        height: 300px; /* Should be removed. Only for demonstration */
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+  </style>
+</head>
+<body>
+    <form action="/action_page.php">
+        <a href='Market_Main.html'><img src="hanul.png" border="0" height="72" style="padding-top:12px;padding-left:2px;"></a>
+        <input type="search" name="tagkeyword" id="query" autocomplete="off" maxlength="255" style="-webkit-appearance:none;font-size:12px;border:2px solid #86f3ff;background-repeat:no-repeat;  padding:8px;width:180px; color:#666;" onclick="this.value=''" value="" placeholder="검색창">
+        <a href='Market_Main.html'><input type="submit" class="lod" name="sa" value="검색" style="cursor:pointer;font-size:12px;color:#fff;background-color:#86f3ff;padding:10px 12px;border:0; " align="absmiddle"></a>
+
+        <h1>한동 장터-Read</h1>
+        <div>남송리 3번지, 한동 장터 게시글입니다.</div><br>
+        <div class="row">
+            <div class="column">
+                <div id="Card">
+                    <판매중> 제목입니다 <!-- 상태 / 제목 -->
+                    <br><br>
+                    <img src="hanul.png" height="25"> 박수현
+                    <br><br>
+                    연락처 : 01063335813
+                    <br><br>
+                    <a href=''>#팝니다</a> <a href=''>#책</a> 
+                    <br><br>
+                    게시일 : 2019.01.16
+                </div>
+                
+                가격 : 10,000 원<br><br>
+                <img src="hanul.png" height="100"><br><br>
+                데이터구조 책 팝니다.<br><br>
+                <a href="Market_Main.html"><input type="button" value="목록으로"></a>
+            </div>
+            <div class="column">
+                <a href="Market_Update.html"><input type="button" value="수정하기"></a>
+                <a href="Market_Main.html"><input type="button" value="판매 완료로 표시"></a>
+                <br><br>
+                <input type="button" value="삭제하기">
+            </div>
+        </div>
+        <br><br>
+        <br><br>
+    </form>
+</body>
+</html>
