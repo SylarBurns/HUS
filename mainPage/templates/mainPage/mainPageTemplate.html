@@ -1,0 +1,88 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'mainPage/style.css' %}">
+<html>
+    <head>
+        <title>
+            한우리-한동 우리들의 이야기
+        </title>
+    </head>
+    <body>
+        <img src="{% static 'mainPage/images/HUS_Logo_1.png' %}" class="Logo"/>
+        <div class="search">
+            <input type="text" value="검색창">
+            <button>검색버튼</button>
+        </div>
+        <table>
+                <tr>
+                    {% for index in range %}
+                    <th>
+                        {{ index }}. 대게시판 제목
+                    </th>
+                    {% endfor %}
+                </tr>
+                <tr>   
+                    {% for index in range %} 
+                    <td>
+                        <ol>
+                            {% for index in range %} 
+                            <ol>소게시판 제목</ol>
+                            {% endfor %}
+                        </ol>
+                    </td>
+                    {% endfor %}
+                </tr>
+        </table>
+        <section class="add">
+            <h2>광고</h2>
+        </section>
+        <section class="login">
+            <h2>로그인</h2>
+            <button type="submit">로그인</button>
+            <input type="text" value="hisnet ID">
+            <input type="text" value="hisnet PW">
+        </section>
+        <section class="bestFive">
+            <h2>Best 게시물</h2>
+        </section>
+        <section class="login2">
+                <div>
+                    <div>
+                        <img src="{% static 'mainPage/images/handongLogo.png' %}" class="img"/>
+                        <h2 style="display: inline">사용자</h2>
+                    </div>
+                    <h4>알림</h4>
+                    <h4>마이페이지</h4>
+                    <h4>로그아웃</h4> 
+                    <div class="notice">
+                        <ul>
+                            {% for index in range %}
+                            <li>알림입니다<button>X</button></li>
+                            {% endfor %}
+                        </ul>
+                    </div> 
+                </div>
+            </section>
+        <section class="news">
+            <h2>한동신문사</h2>
+        </section>
+        <section class="market">
+            <h2>한동장터</h2>
+            {% for index in range %}
+                <div class="marketItem">
+                    <img src="{% static 'mainPage/images/handongLogo.png' %}" class="img"/>
+                    <h2>상품 이름</h2>
+                    <h3>20,000</h3>
+                </div>
+            {% endfor %}
+        </section>
+        <section class="lostNFound">
+            <h2>Lost&Found</h2>
+            {% for index in range %}
+            <div class="lostItem">
+                <img src="{% static 'mainPage/images/handongLogo.png' %}" class="img"/>
+                <h2>글 제목</h2>
+            </div>
+        {% endfor %}
+        </section>
+    </body>
+</html>

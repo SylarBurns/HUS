@@ -1,0 +1,119 @@
+html {
+    scroll-behavior: smooth;
+}
+table, tr, th, td{
+    border: 1px solid black;
+}
+table{
+    width: 100%;
+    clear: both;
+}
+h1{
+    color:green;
+}
+.search{
+    float: right;
+    margin: 5px;
+}
+.add, .bestFive, .market{
+    width: 70%;
+    height: 250px;
+    border: 1px solid black;
+    margin-top: 5px;
+    padding: 5px;
+    float:left;
+}
+.market{
+    overflow-x:scroll;
+    overflow-y:hidden;
+}
+.add{
+    height:150px;
+}
+.login, .login2, .news, .lostNFound{
+    width: 25%;
+    border :1px solid black;
+    margin-top: 5px;
+    padding: 5px;
+    float: right;
+}
+.news, .lostNFound{
+    height:250;
+}
+.login2 img, h4{
+    display:inline;
+}
+.notice{
+    border-top: 1px solid black;
+}
+.lostNFound{
+    overflow-y: scroll;
+}
+.login button{
+    height:80px;
+    float:right;
+}
+.login input{
+    float:left;
+    height:40px;
+    width:200px;
+}
+.marketItem{
+    border:1px solid black;
+    width:150px;
+    height:150px;
+    display:inline-table;
+}
+.img{
+    width:50px;
+    height:50px;
+    vertical-align:middle;
+}
+.Logo{
+    height:200px;
+    width:400px;
+    display:inline-block;
+}
+.topMenu{
+    width:100%;
+}
+.sideMenu{
+    width:12%;
+    height:500px;
+    float:left;
+    border:1px solid black;
+    margin: 5px;
+    padding: 5px;
+    position:fixed;
+}
+.sideMenuBottomIcons{
+    margin:5px;
+    text-align:center;
+}
+.mainContent{
+    width:85%;
+    height:1500px;
+    border:1px solid black;
+    float:right;
+    margin:5px;
+    padding: 5px;
+}
+.footer{
+    width:85%;
+    height:200px;
+    border:1px solid black;
+    display:block;
+    clear: both;
+    float:right;
+    margin:5px;
+    padding: 5px;
+}
+.centerBox {
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    vertical-align:middle;
+  }
+.centerBox h3{
+    display:inline-block
+}

@@ -17,7 +17,8 @@ from django.contrib import admin
 from django.urls import include, path
 
 app_name = 'boards'
-urlpatterns = [ #mapper: 해당하는 view 함수에 대한 mapping 목록을 정의한다.
+urlpatterns = [ 
+       path('mainPage/', include('mainPage.urls')),
        path('admin/', admin.site.urls),
        path('boards/', include('boards.urls')),
     ]
