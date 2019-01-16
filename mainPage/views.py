@@ -24,3 +24,12 @@ class basePageView(TemplateView):
         context['range']=[1,2,3,4]
         context['ten']=[1,2,3,4,5,6,7,8,9,10]
         return context
+
+class testPageView(TemplateView):
+    template_name="mainPage/test.html"
+    def get_context_data(self, **kwargs):
+        context=super().get_context_data(**kwargs)
+        context['range']=[1,2,3,4]
+        context['ten']=[1,2,3,4,5,6,7,8,9,10]
+        return context
+    
