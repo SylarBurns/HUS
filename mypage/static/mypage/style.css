@@ -1,0 +1,29 @@
+h2, h4{
+  margin-left : 80px;
+}
+table {
+  border-collapse: collapse;
+  width: 80%;
+  margin-left : 80px;
+}
+
+th, td {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+
+a { 
+  text-decoration:none;
+  color:black;
+}
+
+.t01{
+  margin-bottom: 40px;
+  margin-left : 80px;
+  text-align: center;
+}
+
+.t01, .t02{
+  background-color: #f2f2f2;
+}
