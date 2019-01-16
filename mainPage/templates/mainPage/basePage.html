@@ -11,29 +11,63 @@
             <button>검색버튼</button>
         </div>
         <section class="topMenu">
-                <table>
-                        <tr>
-                            {% for index in range %}
-                            <th>
-                                {{ index }}. 대게시판 제목
-                            </th>
-                            {% endfor %}
-                        </tr>
-                        <tr>   
+        <table>
+                <tr>
+                    <!-- {% for index in range %}
+                    <th>
+                        {{ index }}. 대게시판 제목
+                    </th>
+                    {% endfor %} -->
+                    <th>커뮤니티</th>
+                    <th>한동장터</th>
+                    <th>한동라이프</th>
+                    <th>한동정보</th>
+                </tr>
+                <tr>   
+                    <!-- {% for index in range %} 
+                    <td>
+                        <ul>
                             {% for index in range %} 
-                            <td>
-                                <ol>
-                                    {% for index in range %} 
-                                    <ol>소게시판 제목</ol>
-                                    {% endfor %}
-                                </ol>
-                            </td>
+                            <li>소게시판 제목</li>
                             {% endfor %}
-                        </tr>
-                </table>
+                        </ul>
+                    </td>
+                    {% endfor %} -->
+                    <td>
+                        <ul>
+                        <li><a href="{% url 'boards:list' %}">감자밭</a></li>
+                        <li>천마지</li>
+                        <li>대나무숲</li>
+                        <li>활주로</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                        <li>전체</li>
+                        <li>#top 1</li>
+                        <li>#top 2</li>
+                        <li>#top 3</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                        <li>Lost&Found</li>
+                        <li>부동산</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                        <li>SEAL</li>
+                        <li>아이택시</li>
+                        <li>총학생회</li>
+                        <li>총동연회</li>
+                        </ul>
+                    </td>
+                </tr>
+        </table>
         </section>
         <aside class="sideMenu">
-            <ul>
+            <!-- <ul>
                 {% for index in range %}
                 <li>대게시판</li>
                 <ul>
@@ -42,6 +76,34 @@
                     {% endfor%}
                 </ul>
                 {% endfor %}
+            </ul> -->
+            <ul>
+            <li>커뮤니티</li>
+            <ul>
+                <li><a href="{% url 'boards:list' %}">감자밭</a></li>
+                <li>천마지</li>
+                <li>대나무숲</li>
+                <li>활주로</li>
+            </ul>
+            <li>한동장터</li>
+            <ul>
+                <li>전체</li>
+                <li>#top 1</li>
+                <li>#top 2</li>
+                <li>#top 3</li>
+            </ul>
+            <li>한동라이프</li>
+            <ul>
+                <li>Lost&Found</li>
+                <li>부동산</li>
+            </ul>
+            <li>한동정보</li>
+            <ul>
+                <li>SEAL</li>
+                <li>아이택시</li>
+                <li>총학생회</li>
+                <li>총동연회</li>
+            </ul>
             </ul>
         <div class="sideMenuBottomIcons">
         <a href="#bottom"><img src="{% static 'mainPage/images/down.png'%}" class="img"/></a>

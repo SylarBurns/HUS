@@ -14,22 +14,56 @@
         </div>
         <table>
                 <tr>
-                    {% for index in range %}
+                    <!-- {% for index in range %}
                     <th>
                         {{ index }}. 대게시판 제목
                     </th>
-                    {% endfor %}
+                    {% endfor %} -->
+                    <th>커뮤니티</th>
+                    <th>한동장터</th>
+                    <th>한동라이프</th>
+                    <th>한동정보</th>
                 </tr>
                 <tr>   
-                    {% for index in range %} 
+                    <!-- {% for index in range %} 
                     <td>
-                        <ol>
+                        <ul>
                             {% for index in range %} 
-                            <ol>소게시판 제목</ol>
+                            <li>소게시판 제목</li>
                             {% endfor %}
-                        </ol>
+                        </ul>
                     </td>
-                    {% endfor %}
+                    {% endfor %} -->
+                    <td>
+                        <ul>
+                        <li><a href="{% url 'boards:list' %}">감자밭</a></li>
+                        <li>천마지</li>
+                        <li>대나무숲</li>
+                        <li>활주로</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                        <li>전체</li>
+                        <li>#top 1</li>
+                        <li>#top 2</li>
+                        <li>#top 3</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                        <li>Lost&Found</li>
+                        <li>부동산</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                        <li>SEAL</li>
+                        <li>아이택시</li>
+                        <li>총학생회</li>
+                        <li>총동연회</li>
+                        </ul>
+                    </td>
                 </tr>
         </table>
         <section class="add">
@@ -37,7 +71,7 @@
         </section>
         <section class="login">
             <h2>로그인</h2>
-            <button type="submit">로그인</button>
+            <button type="submit"><a href="{% url 'join:clause' %}">로그인</a></button>
             <input type="text" value="hisnet ID">
             <input type="text" value="hisnet PW">
         </section>
@@ -51,7 +85,7 @@
                         <h2 style="display: inline">사용자</h2>
                     </div>
                     <h4>알림</h4>
-                    <h4>마이페이지</h4>
+                    <h4><a href="{% url 'mypage:myPost' %}">마이페이지</a></h4>
                     <h4>로그아웃</h4> 
                     <div class="notice">
                         <ul>
