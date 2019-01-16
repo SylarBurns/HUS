@@ -21,4 +21,6 @@ urlpatterns = [
        path('mainPage/', include('mainPage.urls')),
        path('admin/', admin.site.urls),
        path('boards/', include('boards.urls')),
+       path('mypage/', include('mypage.urls')),
+       path('join/', include('join.urls')),
     ]
