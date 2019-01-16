@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="{% static 'lostAndFound/style.css' %}">
+        <title>LOST & FOUND</title>
+        <link rel="icon" href="{% static 'images/title_icon.jpg' %}">
+    </head>
+
+
+    <body>
+        <div class="lostAndFoundName">
+            <h2><a href="{% url 'lostAndFound:list' %}">LOST & FOUND</a></h2>
+            <h4>한우리 분실물 게시판입니다.</h4>
+        </div>
+
+        <select id="createCategory" name="category_srl">
+            <option value="lost">LOST</option>
+            <option value="found">FOUND</option>
+        </select>
+        <input type="text" placeholder="제목을 입력해주세요." class="ed input input-default input-expand">
+        
+        <div>
+            카테고리 :
+            <label><input type="radio" name="category" value="idcard"> 학생증</label>
+            <label><input type="radio" name="category" value="electronic"> 전자기기</label>
+            <label><input type="radio" name="category" value="cash"> 돈/카드/지갑</label>
+            <label><input type="radio" name="category" value="other"> 기타</label>
+        </div>
+        <div>
+            <label for="telNo">연락처 :</label>
+            <input type="tel" id="telNo" name="telNo" placeholder="010-0000-0000">
+        </div>
+       <textarea name="comment", cols="80", rows="30"></textarea><br>
+       <button><a href="/lostAndFound/">게시</a></button>
+       <button><a href="/lostAndFound/">취소</a></button>
+    </body>
+</html>
