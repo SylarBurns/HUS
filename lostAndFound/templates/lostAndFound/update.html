@@ -1,4 +1,5 @@
-
+{% extends 'mainPage/basePage.html' %}
+{% block content %}
 <!DOCTYPE html>
 <html>
     <head>
@@ -24,3 +25,4 @@
     <button><a href="{% url 'lostAndFound:detail' %}">수정완료</a></button>
     </body>
 </html>
+{% endblock %}
