@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'mypage.apps.MypageConfig',
     'join.apps.JoinConfig',
     'lostAndFound.apps.LostandfoundConfig',
+    'skyLake.apps.SkylakeConfig',
 ]
 
 MIDDLEWARE = [

@@ -24,4 +24,5 @@ urlpatterns = [
        path('mypage/', include('mypage.urls')),
        path('join/', include('join.urls')),
        path('lostAndFound/',include('lostAndFound.urls')),
+       path('skyLake/', include('skyLake.urls')),
     ]

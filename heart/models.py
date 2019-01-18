@@ -28,7 +28,7 @@ class Post(models.Model):
     content = models.CharField(max_length=3000, blank= False)             
     pubDate = models.DateTimeField(auto_now_add=True, blank=False) 
     updateDate = models.DateTimeField(auto_now_add=True, blank=True) 
-    hitCount = models.IntegerField() #조회수
+    hitCount = models.IntegerField(default=0) #조회수
     boardNum = models.IntegerField(blank=False) #게시판 별 고유번호
     reportStatus = models.CharField(max_length=10, blank=True) # mypage-신고내역 ( 미확인, 확인중, 확인완료 )
     status = models.CharField(max_length=10, blank=True)  # lostNfound, 한동장터 ( 판매중, 판매완료, Lost, Found, 해결완료 )
@@ -74,9 +74,9 @@ class PostRelation(models.Model):
     isWriter=models.BooleanField(default=False)
     like=models.BooleanField(default=False)
     dislike=models.BooleanField(default=False)
-    vote=models.IntegerField(blank= True) #각 게시물 detailview에서 내가 투표한 결과를 볼 수 있게
-    user = models.ForeignKey(User, on_delete=models.CASCADE)#user로 연결되는 foreignkey
-    post = models.ForeignKey(Post, on_delete=models.CASCADE)#post로 연결되는 foreignkey
+    vote=models.IntegerField(default=-1) #각 게시물 detailview에서 내가 투표한 결과를 볼 수 있게
+    user = models.ForeignKey(User, related_name="post_relation", on_delete=models.CASCADE)#user로 연결되는 foreignkey
+    post = models.ForeignKey(Post, related_name="post_relation", on_delete=models.CASCADE)#post로 연결되는 foreignkey
 
 class ComRelation(models.Model):
     annonimity=models.BooleanField(default=False)
@@ -84,6 +84,6 @@ class ComRelation(models.Model):
     isWriter=models.BooleanField(default=False)
     like=models.BooleanField(default=False)
     dislike=models.BooleanField(default=False)
-    vote=models.IntegerField(blank= True) #각 게시물 detailview에서 내가 투표한 결과를 볼 수 있게
-    user = models.ForeignKey(User, on_delete=models.CASCADE)#user로 연결되는 foreignkey
-    comment = models.ForeignKey(Comment, on_delete=models.CASCADE)#comment로 연결되는 foreignkey
+    vote=models.IntegerField(default=-1) #각 게시물 detailview에서 내가 투표한 결과를 볼 수 있게
+    user = models.ForeignKey(User, related_name="com_relation", on_delete=models.CASCADE)#user로 연결되는 foreignkey
+    comment = models.ForeignKey(Comment, related_name="com_relation", on_delete=models.CASCADE)#comment로 연결되는 foreignkey
