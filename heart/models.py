@@ -7,7 +7,7 @@ from django.utils import timezone
 class User(models.Model):
     name= models.CharField(max_length=20)#사용자의 이름
     nickName=models.CharField(max_length=20)#사용자가 설정한 닉네임
-    studentId=models.IntegerField()#학번;
+    studentId=models.PositiveIntegerField()#학번;
     sex=models.CharField(max_length=1)#성별; 남자 : M, 여자 : F
     birthDate=models.DateField()#생일; 형식 : 1995-09-30
     signInDate=models.DateTimeField(auto_now_add=True)#가입 날짜; 형식 : 2018-01-17 
@@ -28,8 +28,8 @@ class Post(models.Model):
     content = models.CharField(max_length=3000, blank= False)             
     pubDate = models.DateTimeField(auto_now_add=True, blank=False) 
     updateDate = models.DateTimeField(auto_now_add=True, blank=True) 
-    hitCount = models.IntegerField() #조회수
-    boardNum = models.IntegerField(blank=False) #게시판 별 고유번호
+    hitCount = models.PositiveIntegerField(default=0) #조회수
+    boardNum = models.PositiveIntegerField(blank=False) #게시판 별 고유번호
     reportStatus = models.CharField(max_length=10, blank=True) # mypage-신고내역 ( 미확인, 확인중, 확인완료 )
     status = models.CharField(max_length=10, blank=True)  # lostNfound, 한동장터 ( 판매중, 판매완료, Lost, Found, 해결완료 )
     boardType = models.CharField(max_length=10, blank=True) # lostNfound, 한동장터 ( 팝니다, 삽니다, Lost, Found )
@@ -54,9 +54,9 @@ class Comment(models.Model):
         through_fields=('comment', 'user'))  #댓글과 관련된 유저들
     pubDate = models.DateTimeField(auto_now_add=True) #댓글 생성날짜
     content = models.TextField(max_length=3000, blank=False) #댓글 내용
-    belongToBoard = models.IntegerField(blank= True) #어떤 게시판에 소속된 댓글인지 알 수 있도록 게시판의 pk표시
-    belongToComment = models.IntegerField(blank= True) #어떤 댓글에 소속된 대댓글인지 알 수 있도록 상위 댓글의 pk표시
-    stance = models.IntegerField(blank= True) #활주로에서 댓글의 의견 상태 표시 0:반대 1:찬성 2:중립
+    belongToBoard = models.PositiveIntegerField(blank= True) #어떤 게시판에 소속된 댓글인지 알 수 있도록 게시판의 pk표시
+    belongToComment = models.PositiveIntegerField(blank= True) #어떤 댓글에 소속된 대댓글인지 알 수 있도록 상위 댓글의 pk표시
+    stance = models.PositiveIntegerField(blank= True) #활주로에서 댓글의 의견 상태 표시 0:반대 1:찬성 2:중립
     reportStatus = models.CharField(max_length=10,blank= True) #신고 상태
     noticeChecked = models.BooleanField(default=False) #알림을 확인 했는지 표시
 
@@ -67,16 +67,15 @@ class File(models.Model):
     belongTo = models.ForeignKey(Post, on_delete=models.CASCADE)
     image = models.ImageField(blank=True)
 
-
 class PostRelation(models.Model):
     annonimity=models.BooleanField(default=False)
     annoName=models.CharField(max_length=20, blank= True)
     isWriter=models.BooleanField(default=False)
     like=models.BooleanField(default=False)
     dislike=models.BooleanField(default=False)
-    vote=models.IntegerField(blank= True) #각 게시물 detailview에서 내가 투표한 결과를 볼 수 있게
-    user = models.ForeignKey(User, on_delete=models.CASCADE)#user로 연결되는 foreignkey
-    post = models.ForeignKey(Post, on_delete=models.CASCADE)#post로 연결되는 foreignkey
+    vote=models.PositiveIntegerField(default=0, blank= True) #각 게시물 detailview에서 내가 투표한 결과를 볼 수 있게
+    user = models.ForeignKey(User, related_name = 'post_relation',on_delete=models.CASCADE)#user로 연결되는 foreignkey
+    post = models.ForeignKey(Post, related_name = 'post_relation', on_delete=models.CASCADE)#post로 연결되는 foreignkey
 
 class ComRelation(models.Model):
     annonimity=models.BooleanField(default=False)
@@ -84,6 +83,6 @@ class ComRelation(models.Model):
     isWriter=models.BooleanField(default=False)
     like=models.BooleanField(default=False)
     dislike=models.BooleanField(default=False)
-    vote=models.IntegerField(blank= True) #각 게시물 detailview에서 내가 투표한 결과를 볼 수 있게
-    user = models.ForeignKey(User, on_delete=models.CASCADE)#user로 연결되는 foreignkey
-    comment = models.ForeignKey(Comment, on_delete=models.CASCADE)#comment로 연결되는 foreignkey
+    vote=models.PositiveIntegerField(blank= True) #각 게시물 detailview에서 내가 투표한 결과를 볼 수 있게
+    user = models.ForeignKey(User, related_name = 'com_relation', on_delete=models.CASCADE)#user로 연결되는 foreignkey
+    comment = models.ForeignKey(Comment, related_name = 'com_relation', on_delete=models.CASCADE)#comment로 연결되는 foreignkey
