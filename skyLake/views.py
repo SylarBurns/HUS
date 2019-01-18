@@ -38,8 +38,8 @@ class skyLakeCreateView(CreateView):
         return redirect('skyLake:skyLakeDetail', pk=post.pk)
 
 
-# class skyLakeUpdateView(UpdateView):
-#     template_name = 'skyLake/boardRewrite.html'
-#     def get_object(self):
-#         id_ = self.kwargs.get("pk")
-#         return get_object_or_404(Post, id=id_)
+class skyLakeUpdateView(UpdateView):
+    template_name = 'skyLake/boardCreate.html'
+    def get_object(self):
+        id_ = self.kwargs.get("pk")
+        return get_object_or_404(Post, id=id_)
