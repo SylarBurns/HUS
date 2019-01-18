@@ -44,6 +44,10 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+    
+    def update_hitCount(self):
+        self.hitCount += 1
+        self.save()
 
 
 class Comment(models.Model):
