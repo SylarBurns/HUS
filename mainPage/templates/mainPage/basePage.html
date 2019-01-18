@@ -5,7 +5,7 @@
         <title>한우리-우리들의 이야기</title>
     </head>
     <body>
-        <img src="{% static 'mainPage/images/HUS_Logo_1.png' %}" class="Logo" id="top"/>
+        <a href="{% url 'mainPage:mainPage' %}"><img src="{% static 'mainPage/images/HUS_Logo_1.png' %}" class="Logo" id="top"/></a>
         <div class="search">
             <input type="text" value="검색창">
             <button>검색버튼</button>
@@ -36,7 +36,7 @@
                     <td>
                         <ul>
                         <li><a href="{% url 'boards:list' %}">감자밭</a></li>
-                        <li>천마지</li>
+                        <li><a href="{% url 'skyLake:skyLakeList' %}">천마지</a></li>
                         <li>대나무숲</li>
                         <li>활주로</li>
                         </ul>
@@ -81,7 +81,7 @@
             <li>커뮤니티</li>
             <ul>
                 <li><a href="{% url 'boards:list' %}">감자밭</a></li>
-                <li>천마지</li>
+                <li><a href="{% url 'skyLake:skyLakeList' %}">천마지</a></li>
                 <li>대나무숲</li>
                 <li>활주로</li>
             </ul>

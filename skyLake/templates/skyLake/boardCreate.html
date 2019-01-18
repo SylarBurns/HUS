@@ -13,12 +13,12 @@
         <h2 class="boardName"> 천마지 </h2>
         <h4 class="boardName"> 사랑을 속삭이는 정원 천마지입니다. </h4>
         <form method="POST">
-                {% csrf_token %}
-                <table>
-                        {{ form.as_table }}
-                </table>
-                <input class="fixed submit" type="Submit" value="Submit">
-            </form>
+            {% csrf_token %}
+            <table>
+                {{ form.as_table }}
+            </table>
+            <input class="fixed submit" type="Submit" value="Submit">
+        </form>
     </body>
 
 <html>
