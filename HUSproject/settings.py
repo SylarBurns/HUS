@@ -45,7 +45,27 @@ INSTALLED_APPS = [
     'lostAndFound.apps.LostandfoundConfig',
     'skyLake.apps.SkylakeConfig',
     'bamboo.apps.BambooConfig',
+    'ckeditor',
+    'ckeditor_uploader', 
 ]
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_CONFIGS = {
+   'default' : {
+        'toolbar' : 'Custom',
+        'height' : 500,
+        'toolbar_Custom' : [
+            ['Bold', 'Link', 'Image'],
+        ],
+    },
+    'comment':{
+        'toolbar' : 'Custom',
+        'height' : 300,
+        'toolbar_Custom' : [
+            ['Bold'],
+        ],
+    }
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -126,3 +146,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+MEDIA_URL='/media/'
+MEDIA_ROOT='media/'
+

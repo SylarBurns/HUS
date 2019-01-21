@@ -15,6 +15,7 @@
         <form method="POST">
             {% csrf_token %}
             <table>
+                {{ form.media }}
                 {{ form.as_table }}
             </table>
             <input class="fixed submit" type="Submit" value="Submit">

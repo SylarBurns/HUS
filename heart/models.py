@@ -2,6 +2,8 @@ from django.db import models
 from django.utils.timezone import datetime
 from django.urls import reverse
 from django.utils import timezone
+from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
 # Create your models here.
 # -*- coding: utf-8 -*-
 class User(models.Model):
@@ -25,7 +27,8 @@ class User(models.Model):
 
 class Post(models.Model):
     title = models.CharField(max_length=100, blank=False) 
-    content = models.CharField(max_length=3000, blank= False)             
+    content = models.CharField(max_length=3000, blank= True)
+    postEditor =  RichTextUploadingField(blank=True, null=True)
     pubDate = models.DateTimeField(auto_now_add=True, blank=False) 
     updateDate = models.DateTimeField(auto_now_add=True, blank=True) 
     hitCount = models.PositiveIntegerField(default=0) #조회수
@@ -57,7 +60,8 @@ class Comment(models.Model):
         through='ComRelation',
         through_fields=('comment', 'user'))  #댓글과 관련된 유저들
     pubDate = models.DateTimeField(auto_now_add=True) #댓글 생성날짜
-    content = models.TextField(max_length=3000, blank=False) #댓글 내용
+    content = models.TextField(max_length=3000, blank=True) #댓글 내용
+    commentEditor = RichTextUploadingField(blank=True, null=True, config_name='comment')
     belongToBoard = models.PositiveIntegerField(blank= True) #어떤 게시판에 소속된 댓글인지 알 수 있도록 게시판의 pk표시
     belongToComment = models.PositiveIntegerField(blank= True) #어떤 댓글에 소속된 대댓글인지 알 수 있도록 상위 댓글의 pk표시
     stance = models.PositiveIntegerField(blank= True) #활주로에서 댓글의 의견 상태 표시 0:반대 1:찬성 2:중립
