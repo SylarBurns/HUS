@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'join.apps.JoinConfig',
     'lostAndFound.apps.LostandfoundConfig',
     'skyLake.apps.SkylakeConfig',
+    'bamboo.apps.BambooConfig',
 ]
 
 MIDDLEWARE = [
