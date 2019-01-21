@@ -1,0 +1,58 @@
+{% extends 'mainPage/basePage.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+    <head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'bamboo/Style.css'%}">    
+        <meta charset="UTF-8">
+        <title> boardDetail </title>
+    </head>
+
+    <body>
+        <h2 class="boardName"> 대나무숲 </h2>
+        <h4 class="boardName"> 100% 익명보장, 익명게시판입니다.</h4>
+        {{post.update_hitCount}} <!--조회수 증가하는 함수-->
+       <div>
+            <h3 class="title"> {{object.title}} </h3>
+            <p class="name"> 
+            {% for Relation in object.post_relation.all %}
+            {% if Relation.isWriter %}
+            {{ Relation.annoName }}
+            {% endif %}
+            {% endfor %}
+            </p>
+            <p class="date"> {{object.pubDate}}</p>
+            <div style="text-align: right;">
+        </div>
+            <p> {{object.content}} </p>
+        <div class="buttons">
+            <button>좋아요</button>
+            <button>싫어요</button>
+            <button>신고</button>
+        </div>
+
+       
+       
+       <p class="comment">댓글[2]</p>
+       <textarea name="comment", cols="100%", rows="5"></textarea>
+       <p class="name"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQHjzdvCqUGnltcULXtv2fQH7wzGQnEtJiI7f1BP0P67xis8Cc" width="3%" height="3%"> 바르셀로나 2019.1.15 오전 12:17 </p>
+       <p class= "context">있습니다. <button>댓글작성</button></p> 
+       <div class="buttons">
+            <button>좋아요</button>
+            <button>싫어요</button>
+            <button>신고</button>
+            </div>
+       
+       <div class="context2">
+       <p class="name"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQHjzdvCqUGnltcULXtv2fQH7wzGQnEtJiI7f1BP0P67xis8Cc" width="3%" height="3%"> 크랑이 2019.1.15 오전 12:27 </p>
+       <p class= "context">감사합니다.</p>
+       <div class="buttons">
+            <button>좋아요</button>
+            <button>싫어요</button>
+            <button>신고</button>
+        </div>
+    </body>
+
+<html>
+{% endblock %}

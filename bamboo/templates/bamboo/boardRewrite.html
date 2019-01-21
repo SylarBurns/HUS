@@ -1,0 +1,23 @@
+{% extends 'mainPage/basePage.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+    <head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'skyLake/Style.css'%}">
+        <meta charset="UTF-8">
+        <title> boardCreate </title>
+    </head>
+
+    <body>
+        <h2 class="boardName"> 대나무숲 </h2>
+        <h4 class="boardName"> 100% 익명보장, 익명게시판입니다. </h4>
+       <p> 제목 : 오늘 용교수님 컴구 </p>
+       <p class="contents"> 컴구 오늘 수업있나여? </p>
+    
+       <textarea name="comment", cols="80", rows="30" placeholder="추가하기"></textarea><br>
+       <button><a href="{% url 'skyLake:skyLakeList' %}">게시</a></button>
+    </body>
+
+<html>
+{% endblock %}

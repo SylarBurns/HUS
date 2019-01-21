@@ -1,0 +1,47 @@
+{% extends 'mainPage/basePage.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+    <head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'bamboo/Style.css'%}">   
+        <meta charset="UTF-8">
+        <title> boardList </title>
+        
+    </head>
+
+    <body>
+        <h2 class="boardName"> 대나무숲 </h2>
+        <h4 class="boardName"> 100% 익명보장, 익명게시판입니다. </h4>
+       {% if post_list %}
+       <table width=80% height=30%>
+        <th>#</th>
+        <th width="75%">제목</th>
+        <th>글쓴이</th>
+        <th>조회수</th>
+        <th>날짜</th>
+        {% for post in post_list %}<!-- post 객체들을 상대로 for문 돌림 -->
+        <tr>
+            <td>{{post.pk}}</td>
+            {% for Relation in post.post_relation.all %} <!--각 post 객체들에게 연결되어있는 PostRelation 객체들을 상대로 for문을 돌림-->
+            <td>
+            <a href="{% url 'bamboo:bambooDetail' post.pk %}">{{post.title}}</a>
+            </td>
+            {% if Relation.isWriter %}
+            <td>{{Relation.annoName}}</td>
+            {% endif %}
+            {% endfor %}
+            <td>{{post.hitCount}}</td>
+            <td>{{post.pubDate}}</td>
+        </tr>
+        {% endfor %}
+        </table>
+        {% else %}
+        <h3>아직 게시물이 없습니다. 첫번째 게시물의 주인공이 되어주세요! </h3>
+        {% endif %}
+       <button style="position: absolute; right:20%;"><a href="{% url 'bamboo:bambooCreate' %}">글쓰기</a></button>  
+
+    </body>
+
+<html>
+{% endblock %}

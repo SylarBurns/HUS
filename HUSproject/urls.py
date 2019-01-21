@@ -25,4 +25,5 @@ urlpatterns = [
        path('join/', include('join.urls')),
        path('lostAndFound/',include('lostAndFound.urls')),
        path('skyLake/', include('skyLake.urls')),
+       path('bamboo/', include('bamboo.urls')),
     ]
