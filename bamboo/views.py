@@ -20,9 +20,18 @@ class bambooListView(ListView):
 
 class bambooDetailView(DetailView):
     template_name = 'bamboo/boardDetail.html'
+
     def get_object(self):
         id_ = self.kwargs.get("pk")
         return get_object_or_404(Post, id=id_)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        pk = self.kwargs.get("pk")
+        post = Post.objects.get(pk=pk)
+        context['likeCount']=post.post_relation.filter(like=True).count()
+        context['dislikeCount']=post.post_relation.filter(dislike=True).count()
+        return context
 
 
 class bambooCreateView(CreateView):
@@ -59,7 +68,7 @@ def postLike(request, pk):#좋아요 싫어요 기능 추가
     except exceptions.ObjectDoesNotExist :
         relation = PostRelation(post=post, user=User.objects.get(pk=2), dislike=True)
         relation.save()
-        
+
     return redirect('bamboo:bambooDetail', pk=pk)
 
 def postDislike(request, pk):
