@@ -58,7 +58,7 @@ class bambooUpdateView(UpdateView):
 def postLike(request, pk):#좋아요 싫어요 기능 추가
     post = Post.objects.get(pk=pk)#pk로 post object를 가져온다.
     try : 
-        relation = PostRelation.objects.filter(post_id=pk).filter(user_id=2).get()
+        relation = PostRelation.objects.filter(post_id=pk).filter(user_id=1).get()
         if relation.like :
             relation.like = False
         else:
@@ -66,7 +66,7 @@ def postLike(request, pk):#좋아요 싫어요 기능 추가
             relation.dislike = False
         relation.save()
     except exceptions.ObjectDoesNotExist :
-        relation = PostRelation(post=post, user=User.objects.get(pk=2), dislike=True)
+        relation = PostRelation(post=post, user=User.objects.get(pk=1), like=True)
         relation.save()
 
     return redirect('bamboo:bambooDetail', pk=pk)
@@ -75,7 +75,7 @@ def postDislike(request, pk):
     post = Post.objects.get(pk=pk)
 
     try : 
-        relation = PostRelation.objects.filter(post_id=pk).filter(user_id=2).get()
+        relation = PostRelation.objects.filter(post_id=pk).filter(user_id=1).get()
         if relation.dislike:
             relation.dislike=False
         else:
@@ -83,7 +83,7 @@ def postDislike(request, pk):
             relation.dislike=True
         relation.save()
     except :
-        relation = PostRelation(post=post, user=User.objects.get(pk=2), dislike=True)
+        relation = PostRelation(post=post, user=User.objects.get(pk=1), dislike=True)
         relation.save()
         
     return redirect('bamboo:bambooDetail', pk=pk)
