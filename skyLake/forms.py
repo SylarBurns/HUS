@@ -6,7 +6,7 @@ from heart.models import PostRelation
 class PostModelForm(ModelForm):
     class Meta:
         model = Post
-        fields = ['title', 'content']
+        fields = ['title', 'postEditor' ]
         
     def form_valid(self, form):
         print(form.cleaned_data)
