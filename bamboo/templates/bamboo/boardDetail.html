@@ -27,8 +27,8 @@
         </div>
             <p> {{object.postEditor | safe }} </p>
         <div class="buttons">
-            <button>좋아요</button>
-            <button>싫어요</button>
+            <button><a href="{% url 'bamboo:postLike' pk=object.pk %}">좋아요</a></button>
+            <button><a href="{% url 'bamboo:postDislike' pk=object.pk %}">싫어요</a></button>
             <button>신고</button>
         </div>
 
