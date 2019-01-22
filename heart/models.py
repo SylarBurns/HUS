@@ -26,9 +26,9 @@ class User(models.Model):
     email=models.EmailField(default=None)#사용자의 이메일 정보
 
 class Post(models.Model):
-    title = models.CharField(max_length=100, blank=False) 
+    title = models.CharField("제목", max_length=100, blank=False) 
     content = models.CharField(max_length=3000, blank= True)
-    postEditor =  RichTextUploadingField(blank=True, null=True,
+    postEditor =  RichTextUploadingField("내용", blank=True, null=True,
                                           external_plugin_resources=[(
                                           'youtube',
                                           '/static/heart/external/ckeditor_plugins/youtube/youtube/',
