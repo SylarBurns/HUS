@@ -55,8 +55,9 @@ CKEDITOR_CONFIGS = {
         'toolbar' : 'Custom',
         'height' : 500,
         'toolbar_Custom' : [
-            ['Bold', 'Link', 'Image'],
+            ['Bold', 'Link', 'Image', 'Youtube'],
         ],
+        'extraPlugins' : ','.join(['youtube']),
     },
     'comment':{
         'toolbar' : 'Custom',
