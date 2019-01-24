@@ -31,8 +31,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'heart.apps.HeartConfig',
-    'mainPage.apps.MainpageConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -46,7 +44,9 @@ INSTALLED_APPS = [
     'skyLake.apps.SkylakeConfig',
     'bamboo.apps.BambooConfig',
     'ckeditor',
-    'ckeditor_uploader', 
+    'ckeditor_uploader',
+    'heart.apps.HeartConfig',
+    'mainPage.apps.MainpageConfig', 
 ]
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
@@ -151,3 +151,4 @@ STATIC_URL = '/static/'
 MEDIA_URL='/media/'
 MEDIA_ROOT='media/'
 
+AUTH_USER_MODEL = 'heart.User'
