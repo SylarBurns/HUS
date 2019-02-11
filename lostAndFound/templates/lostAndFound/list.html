@@ -21,7 +21,7 @@
             <tbody>
                 <tr>
                     <td class=tdCategory>
-                        <span class=category><b>전체</b></span>
+                        <span class=category>전체</span>
                         <span class=category>LOST</span>
                         <span class=category>FOUND</span>
                     </td>
@@ -38,37 +38,56 @@
         </table>
 
 
+        <!-- -----------게시물 리스트----------- -->
+        {% if post_list %}
         <table id="lostAndFoundMainTable">
             <thead>
                 <tr>
-                    <th>#</th>
+                    <th class="num">#</th>
                     <th>분류</th>
-                    <th class="headerContent">제목</th>
-                    <th>썸네일</th>
-                    <th>글쓴이</th>
-                    <th>조회수</th>
-                    <th>날짜</th>
+                    <th class="title">제목</th>
+                    <th class="thumbnail">썸네일</th>
+                    <th class="writer">글쓴이</th>
+                    <th class="hit">조회수</th>
+                    <th class="saveDate">날짜</th>
                 </tr>
             </thead>
+            {% for post in post_list%}
             <tbody>
                 <tr>
-                    <td>1</th>
-                    <td>학생증</td>
+                    <td>{{post.pk}}</th>
+                    <td>{{post.itemType}}</td>
                     <td>
                         <div class="content">
-                            <div class="status"><b>[ LOST ]</b></div>
-                            <div><a href="detail/">게시글 제목제목제목제목제목제목제목</a></div>
+                            <div class="status"><b>{{post.status}}</b></div>
+                            <div><a href="{% url 'lostAndFound:detail' post.pk %}">{{post.title}}</a></div>
                         </div>
                     </td>
+                    <!-- itemType (물건카테고리)에 따른 다른 썸네일 로드 -->
+                    {% if post.itemType == 'idcard' %}
                     <td><img src="{% static 'images/idcard.jpg' %}" class="thumbnail"></td>
-                    <td>크랑이</td>
-                    <td>13</td>
-                    <td>01-14</td>
+                    {% elif post.itemType == 'electronic' %}
+                    <td><img src="{% static 'images/electronic.jpg' %}" class="thumbnail"></td>
+                    {% elif post.itemType == 'cash' %}
+                    <td><img src="{% static 'images/cash.jpg' %}" class="thumbnail"></td>
+                    {% else %}
+                    <td><img src="{% static 'images/etc.jpg' %}" class="thumbnail"></td>
+                    {% endif %}
+                    <!-- itemType (물건카테고리)에 따른 다른 썸네일 로드 -->
+                    {% for PostRelation in post.post_relation.all %}
+                    <td>{{PostRelation.user.name}}</td>
+                    {% endfor %}
+                    <td>{{post.hitCount}}</td>
+                    <td>{{post.pubDate}}</td>
                 </tr>
             </tbody>
+            {% endfor %}
         </table>
+        {% else %}
+        <h3>아직 게시물이 없습니다. 첫번째 게시물의 주인공이 되어주세요! </h3>
+        {% endif %}
 
-        <button id=lostAndFoundCreateButton><a href="create/">글쓰기</a></button>
+        <button id = lostAndFoundCreateButton><a href="{% url 'lostAndFound:create' %}">글쓰기</a></button>
 
 
     </body>

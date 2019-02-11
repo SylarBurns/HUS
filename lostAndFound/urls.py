@@ -12,12 +12,16 @@ app_name = 'lostAndFound'
 urlpatterns = [
     # ex: /lostAndFound/
     path('', listView.as_view(), name='list'),
-    # ex: /lostAndFound/5/detail/
-    path('detail/', detailView.as_view(), name='detail'),
+
+    # 리스트에서 lost만 정렬
+    #path('lost/')
+
+    # ex: /lostAndFound/5/
+    path('<int:pk>/', detailView.as_view(), name='detail'),
     # ex: /lostAndFound/create/
     path('create/', createView.as_view(), name='create'),
     # ex: /lostAndFound/5/update/
-    path('update/', updateView.as_view(), name='update'),
+    path('<int:pk>/update/', updateView.as_view(), name='update'),
     # ex: /lostAndFound/5/delete/
-    path('delete/', deleteView.as_view(), name='delete'),
+    path('<int:pk>/delete/', deleteView.as_view(), name='delete'),
 ]

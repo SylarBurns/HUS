@@ -20,31 +20,33 @@
         <table class="lostAndFoundDetailTable">
             <tr>
                 <td>
-                    <div id=lostAndFoundDetailTitle>[LOST] 게시글-제목제목제목제목제목제목제목 </div>  
+                    <div id=lostAndFoundDetailTitle>{{object.status}} {{object.title}} </div>  
                 </td>
             </tr>
             <tr>
                 <td>
                     <img src="{% static 'images/profile_default.png' %}" class=writerProfile>
-                    작성자
+                    {% for PostRelation in object.post_relation.all %}
+                    {{PostRelation.user.name}}
+                    {% endfor %}
                 </td>
             </tr>
             <tr>
                 <td>
-                    카테고리태그
-                    일자
+                    {{post.itemType}}
+                    {{object.pubDate}}
                 </td>
             </tr>
             <tr>
                 <td>
-                    <button><a href="{% url 'lostAndFound:delete' %}">삭제</a></button>
-                    <button><a href="{% url 'lostAndFound:update' %}">수정</a></button>
+                    <button><a href="{% url 'lostAndFound:delete' post.pk %}">삭제</a></button>
+                    <button><a href="{% url 'lostAndFound:update' post.pk %}">수정</a></button>
                     <button>해결됨으로전환</button>
                 </td>
             </tr>
         </table>
 
-        <p>글내용글내용글내용글내용글내용글내용글내용글내용글내용</p>
+        <p>{{object.content}}</p>
         
 
         
@@ -65,7 +67,7 @@
             </div>
         </div>
 
-        <button><a href="/lostAndFound/">목록</a></button>
+        <button><a href="{% url 'lostAndFound:list'%}">목록</a></button>
     </body>
 </html>
 {% endblock %}
